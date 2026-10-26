@@ -1,0 +1,10 @@
+{
+  "device_name": "iTAG",
+  "device_id": "",
+  "button_uuid": "0000ffe1-0000-1000-8000-00805f9b34fb",
+  "button_event_hex": "01",
+  "debounce_seconds": 0.85,
+  "initial_ignore_seconds": 1.0,
+  "action_timeout_seconds": 45,
+  "wake_shortcut": ""
+}
