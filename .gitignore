@@ -1,0 +1,19 @@
+# Private settings, credentials, local paths
+config.json
+*.local.json
+.env
+.env.*
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+# macOS and runtime
+.DS_Store
+*.log
+*.err.log
+state.json
+*-state.json
+# Editors
+.idea/
+.vscode/
