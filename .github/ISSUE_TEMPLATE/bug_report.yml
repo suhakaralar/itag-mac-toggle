@@ -1,0 +1,40 @@
+name: Bug report
+description: Report problems without sharing private identifiers or credentials
+title: "[Bug] "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please redact Bluetooth UUIDs, usernames, passwords, SSH keys and private Shortcut contents.
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version
+      placeholder: e.g. macOS 15.x
+    validations:
+      required: true
+  - type: input
+    id: model
+    attributes:
+      label: iTAG model or source
+      placeholder: e.g. iTracing-style iTAG 4.0
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Affected mode
+      options: [BLE scan, Button test, Lock, Wake, Shortcut, LaunchAgent, Install]
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result / redacted logs
+    validations:
+      required: true
