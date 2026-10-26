@@ -1,13 +1,22 @@
 # Changelog
 
-## 0.1.0 — Community Preview (2026-10-26)
+All notable project changes are documented here. Release dates use ISO 8601 (YYYY-MM-DD).
 
-- CoreBluetooth BLE button notification listener via Bleak.
-- One-button alternating display sleep/wake actions.
-- Optional macOS Shortcut integration for user-managed actions.
-- Per-user configuration, saved toggle state and reconnect handling.
-- LaunchAgent setup and removal scripts.
-- Turkish and English documentation; basic automated checks.
+## [Unreleased]
 
-**Compatibility:** The general-purpose package is released as a community
-preview; the basic mechanism was verified on one Mac Studio and iTAG device.
+### Documentation
+- Consolidated the public documentation into English-only `README.md`.
+- Removed the redundant localized README and standardized the troubleshooting and security guides.
+
+## [0.1.0] - 2026-10-26
+
+**Community preview**
+
+- Added the Bluetooth LE button notification listener using Bleak/CoreBluetooth.
+- Implemented alternating display sleep and wake actions triggered by one iTAG button.
+- Added optional integration with a user-managed macOS Shortcut.
+- Added per-user configuration, saved toggle state, button debounce, and reconnection handling.
+- Added LaunchAgent installation and removal scripts.
+- Added basic automated checks and user-facing documentation.
+
+**Compatibility note:** The underlying BLE button approach was verified with one Mac Studio and one iTAG device. General compatibility across macOS versions, BLE tracker variants, and display configurations remains unverified.

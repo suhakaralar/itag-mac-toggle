@@ -1,30 +1,33 @@
-# Security / Güvenlik
+# Security Policy
 
-## Intended threat model
+## Scope and threat model
 
-This is a **convenience automation**, not a secure authentication token. A
-compatible BLE signal can trigger a command on a logged-in Mac. Bluetooth
-advertisement names are not identity verification. Pin your device by its
-macOS-local UUID when possible; this still is **not cryptographic authentication**.
+iTAG Mac Toggle is a **convenience automation**, **not an authentication factor**.
 
-The default package does **not** bypass macOS authentication or store a password.
-It only sleeps/wakes the display. Optional `wake_shortcut` executes an existing
-Shortcut entirely under the user's responsibility. It may be blocked at the lock
-screen and it might weaken physical access security if that Shortcut enters a
-password. Do not enable this behavior on shared or high-security computers.
+A person capable of sending an accepted BLE button notification can trigger a configured action while the listener is active. Checking a Bluetooth name, selecting a local CoreBluetooth UUID, or filtering a characteristic/payload does **not** establish cryptographic device authenticity. Do not use the project as a secure access-control system.
 
-## Private information
+The default project requests macOS display sleep and wake. It does **not** bypass the lock screen, collect or store macOS passwords, or include an unlock script. The optional `wake_shortcut` only runs an **existing user-controlled Shortcut**. A Shortcut that enters a password may reduce physical security and may not work while the session is locked.
 
-Never publish `config.json`, your own unlock Shortcut, passwords, SSH keys, BLE
-identifiers, or system logs. These are excluded from the repository where
-possible; review changes before any `git add` / pull request.
+Do not deploy automatic sign-in Shortcuts on shared or security-sensitive machines. Users are responsible for evaluating their own configuration.
 
-The project makes no network requests itself. Python dependencies are installed
-from the configured package index by pip, and Homebrew is used to install Python
-when the provided installation script is run.
+## Sensitive information
 
-## Reporting
+Do **not** include any of the following in issues, pull requests, screenshots, logs, or commits:
 
-Open a GitHub issue for general bugs, but do **not** include secrets or personal
-information. For suspected vulnerabilities, use GitHub's private vulnerability
-reporting feature if it is available for the repository.
+- macOS passwords and other credentials
+- SSH private keys, tokens, or recovery codes
+- Private automation/Shortcut contents
+- Device-specific Bluetooth UUIDs and personal system paths
+- Unredacted logs containing identifying information
+
+The `.gitignore` excludes the local `config.json`, virtual environments, and common logs. Review all files manually before publishing any changes.
+
+## Dependencies and network activity
+
+The listener does not independently send application data to a remote server. Installation requires package downloads via Homebrew and pip, subject to the user's normal package-source configuration.
+
+## Reporting security issues
+
+Please use GitHub's **private vulnerability reporting** feature, if available for this repository. Otherwise avoid disclosing exploit details or private credentials in a public issue.
+
+For non-security problems, use the [bug report template](.github/ISSUE_TEMPLATE/bug_report.yml).
